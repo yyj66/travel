@@ -2,7 +2,7 @@
     <div>
         <div class="title">周末去哪儿</div>
         <ul>
-            <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+            <li class="item border-bottom" v-for="item of weekendList" :key="item.id">
                <div class="item-img-wrapper">
                   <img class="item-img" :src="item.imgURL"/>
                </div>
@@ -18,28 +18,10 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '001',
-          imgURL: 'http://img1.qunarzz.com/sight/source/1505/8a/d412db9fcd44dd.jpg_r_640x214_86f303a2.jpg',
-          title: '苏州园林',
-          desc: '真的是特别的漂亮,真的是特别的漂亮,真的是特别的漂亮,重要的事情说三遍'
-        },
-        {
-          id: '002',
-          imgURL: 'http://img1.qunarzz.com/sight/source/1505/8a/d412db9fcd44dd.jpg_r_640x214_86f303a2.jpg',
-          title: '苏州园林',
-          desc: '真的是特别的漂亮,真的是特别的漂亮,真的是特别的漂亮,重要的事情说三遍'
-        },
-        {
-          id: '003',
-          imgURL: 'http://img1.qunarzz.com/sight/source/1505/8a/d412db9fcd44dd.jpg_r_640x214_86f303a2.jpg',
-          title: '苏州园林',
-          desc: '真的是特别的漂亮,真的是特别的漂亮,真的是特别的漂亮,重要的事情说三遍'
-        }
-      ]
+  props: {
+    weekendList: {
+      type: Array,
+      required: true
     }
   }
 }

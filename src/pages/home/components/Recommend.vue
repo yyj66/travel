@@ -18,28 +18,10 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '001',
-          imgURL: 'http://img1.qunarzz.com/sight/p0/201405/14/2324f88e83f7b8675dd9e74a3c2f2fa5.jpg_200x200_e8cf9882.jpg',
-          title: '同里古镇',
-          desc: '真的是特别的漂亮,真的是特别的漂亮,真的是特别的漂亮,重要的事情说三遍'
-        },
-        {
-          id: '002',
-          imgURL: 'http://img1.qunarzz.com/sight/p0/201405/14/2324f88e83f7b8675dd9e74a3c2f2fa5.jpg_200x200_e8cf9882.jpg',
-          title: '同里古镇',
-          desc: '真的是特别的漂亮,真的是特别的漂亮,真的是特别的漂亮,重要的事情说三遍'
-        },
-        {
-          id: '003',
-          imgURL: 'http://img1.qunarzz.com/sight/p0/201405/14/2324f88e83f7b8675dd9e74a3c2f2fa5.jpg_200x200_e8cf9882.jpg',
-          title: '同里古镇',
-          desc: '真的是特别的漂亮,真的是特别的漂亮,真的是特别的漂亮,重要的事情说三遍'
-        }
-      ]
+  props: {
+    recommendList: {
+      type: Array,
+      required: true
     }
   }
 }

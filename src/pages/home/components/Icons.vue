@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-       <swiper>
+       <swiper :options="swiperOption">
           <swiper-slide v-for="(page,index) of pages" :key="index">
             <div class="icon" v-for="item of page" :key="item.id">
               <div class="icon-img">
@@ -17,55 +17,17 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: {
+      type: Array,
+      required: true
+    }
+  },
   data () {
     return {
-      iconList: [
-        {
-          id: '01',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        },
-        {
-          id: '02',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/67/9a1678221b8e0e02.png',
-          desc: '古镇'
-        },
-        {
-          id: '03',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png',
-          desc: '踏景赏花'
-        },
-        {
-          id: '04',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-          desc: '苏州园林'
-        },
-        {
-          id: '05',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-          desc: '一日游'
-        },
-        {
-          id: '06',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '华谊兄弟'
-        },
-        {
-          id: '07',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        },
-        {
-          id: '08',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        },
-        {
-          id: '09',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        }
-      ]
+      swiperOption: {
+        autoPlay: false
+      }
     }
   },
   computed: {

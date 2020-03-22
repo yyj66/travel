@@ -1,6 +1,6 @@
 <template>
 <div>
-    <home-header :city="city"></home-header>
+    <home-header></home-header>
     <home-swiper :swiper-list="swiperList"></home-swiper>
     <home-icons :icon-list="iconList"></home-icons>
     <home-recommend :recommend-list="recommendList"></home-recommend>
@@ -18,7 +18,6 @@ export default {
   name: 'Home',
   data () {
     return {
-      city: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -39,7 +38,6 @@ export default {
     getHomeInfoSuss (res) {
       if (res && res.status === 200 && res.data) {
         const data = res.data.data || []
-        this.city = data.city || ''
         this.swiperList = data.swiperList || []
         this.iconList = data.iconList || []
         this.recommendList = data.recommendList || []

@@ -1,21 +1,25 @@
-# travel
+## Vue CLI 2 版本构建的项目
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+### 切换到课程章节对应的分支
+```
+git checkout 分支名
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### 项目依赖安装
+```
+npm install
+```
+
+### 本地开发
+```
+npm run dev
+```
+
+### 打包编译
+```
+npm run build
+```
+
+### 02-05 章基础课程源码：[点击下载](http://www.dell-lee.com/vue-source-code.zip)
+
+### 课程相关问题请在慕课网答疑区留言

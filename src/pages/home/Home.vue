@@ -1,29 +1,23 @@
 <template>
-<div>
+  <div>
     <home-header></home-header>
-    <home-swiper :swiper-list="swiperList"></home-swiper>
-    <home-icons :icon-list="iconList"></home-icons>
-    <home-recommend :recommend-list="recommendList"></home-recommend>
-    <home-weekend :weekend-list="weekendList"></home-weekend>
-</div>
+    <home-swiper :list="swiperList"></home-swiper>
+    <home-icons :list="iconList"></home-icons>
+    <home-recommend :list="recommendList"></home-recommend>
+    <home-weekend :list="weekendList"></home-weekend>
+  </div>
 </template>
+
 <script>
-import axios from 'axios'
-import HomeHeader from './components/HomeHeader'
-import HomeSwiper from './components/HomeSwiper'
+import HomeHeader from './components/Header'
+import HomeSwiper from './components/Swiper'
 import HomeIcons from './components/Icons'
 import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
+import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
-  data () {
-    return {
-      swiperList: [],
-      iconList: [],
-      recommendList: [],
-      weekendList: []
-    }
-  },
   components: {
     HomeHeader,
     HomeSwiper,
@@ -31,25 +25,47 @@ export default {
     HomeRecommend,
     HomeWeekend
   },
+  data () {
+    return {
+      lastCity: '',
+      swiperList: [],
+      iconList: [],
+      recommendList: [],
+      weekendList: []
+    }
+  },
+  computed: {
+    ...mapState(['city'])
+  },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json').then(this.getHomeInfoSuss)
+      axios.get('/api/index.json?city=' + this.city)
+        .then(this.getHomeInfoSucc)
     },
-    getHomeInfoSuss (res) {
-      if (res && res.status === 200 && res.data) {
-        const data = res.data.data || []
-        this.swiperList = data.swiperList || []
-        this.iconList = data.iconList || []
-        this.recommendList = data.recommendList || []
-        this.weekendList = data.weekendList || []
+    getHomeInfoSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        this.swiperList = data.swiperList
+        this.iconList = data.iconList
+        this.recommendList = data.recommendList
+        this.weekendList = data.weekendList
       }
     }
   },
   mounted () {
+    this.lastCity = this.city
     this.getHomeInfo()
+  },
+  activated () {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo()
+    }
   }
 }
 </script>
-<style scoped>
+
+<style>
 
 </style>

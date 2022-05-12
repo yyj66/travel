@@ -1,5 +1,5 @@
 export default {
-  changeCityMutation (state, city) {
+  changeCity (state, city) {
     state.city = city
     try {
       localStorage.city = city
